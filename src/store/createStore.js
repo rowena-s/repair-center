@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore as createReduxStore, combineReduc
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
-
+import ticketReducer from '../actionsAndReducers/ticket'
 // Create a history of your choosing (we're using a browser history in this case)
 export const history = createHistory()
 
@@ -30,6 +30,7 @@ const createStore = (initialState = {}) => {
   const store = createReduxStore(
     combineReducers({
       location: routerReducer,
+      ticket: ticketReducer,
     }),
     initialState,
     composeEnhancers(
